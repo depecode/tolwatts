@@ -30,16 +30,19 @@ export default function About() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-3xl font-bold text-slate-900 mb-6">Our Background</h2>
+              <div className="mb-8">
+                <h2 className="text-sm font-bold text-accent uppercase tracking-widest mb-4">About the Brand</h2>
+                <h3 className="text-4xl font-bold text-slate-900 mb-6">TolWatts Technology</h3>
+              </div>
               <div className="space-y-4 text-slate-600 leading-relaxed">
-                <p>
-                  TolWatts was founded with a single goal: to solve Nigeria's chronic power challenges by harnessing the most abundant resource we have—the sun. What started as a small team of engineers installing basic setups in Lagos has grown into a nationwide operation providing solar for homes and businesses across Nigeria.
+                <p className="text-lg">
+                  At <span className="font-semibold text-slate-900">TOLWATTS TECHNOLOGY</span>, we are pioneers in the renewable energy sector, driven by a profound commitment to a cleaner and brighter future. With a foundation built on expertise and a passion for excellence, we offer premium services that harness the power of renewable energy to transform lives and power homes across the globe.
                 </p>
                 <p>
-                  Over the past decade, we have deployed thousands of kilowatts of solar power across residential homes, service apartments, and corporate organizations. We understand the local terrain, the grid unreliability, and the heavy financial burden of running diesel and petrol generators.
+                  What started as a small team of engineers installing basic setups in Lagos has grown into a nationwide operation providing solar for homes and businesses across Nigeria. Over the past decade, we have deployed thousands of kilowatts of solar power across residential homes, service apartments, and corporate organizations.
                 </p>
                 <p>
-                  Today, we are proud to be a trusted name in the Nigerian renewable energy sector, known for our transparent pricing, expert installations, and unmatched after-sales support.
+                  We understand the local terrain, the grid unreliability, and the heavy financial burden of running diesel and petrol generators. Today, we are proud to be a trusted name in the Nigerian renewable energy sector, known for our transparent pricing, expert installations, and unmatched after-sales support.
                 </p>
               </div>
             </motion.div>

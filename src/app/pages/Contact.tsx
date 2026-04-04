@@ -92,8 +92,23 @@ export default function Contact() {
                 </div>
                 <div>
                   <h4 className="font-bold text-slate-900 text-lg mb-2">Email</h4>
-                  <p className="text-slate-600">hello@tolwatts.com</p>
+                  <p className="text-slate-600">tolwattstech@gmail.com</p>
                 </div>
+              </div>
+
+              <div className="bg-white p-8 rounded-3xl shadow-sm border border-slate-100">
+                <h4 className="font-bold text-slate-900 text-lg mb-4">Connect With Us</h4>
+                <p className="text-slate-600 mb-4">
+                  Follow us on Instagram for the latest solar innovations, customer stories, and exclusive offers.
+                </p>
+                <a
+                  href="https://www.instagram.com/tolwatts_technology"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block bg-gradient-to-r from-pink-500 to-purple-600 text-white px-6 py-3 rounded-lg font-bold hover:shadow-lg transition-shadow"
+                >
+                  @Tolwatts Technology
+                </a>
               </div>
 
               <div className="pt-4">

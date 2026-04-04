@@ -1,4 +1,4 @@
-import { ArrowRight, CheckCircle2, Zap, Home as HomeIcon, Building2, Wrench, Shield } from "lucide-react";
+import { ArrowRight, CheckCircle2, Zap, Shield, Leaf, Lightbulb, Users, MessageCircle } from "lucide-react";
 import { NavLink } from "react-router";
 import { motion } from "motion/react";
 
@@ -12,22 +12,28 @@ export default function Home() {
 
   const services = [
     {
-      title: "Residential Solar",
-      description: "Beat the national grid outages with reliable solar setups designed for Nigerian homes.",
-      icon: <HomeIcon className="w-10 h-10 text-yellow-500 mb-4" />,
+      title: "Premium Services",
+      subtitle: "Solar Installation",
+      description: "Professional installation of high-quality solar panels, inverters, and lithium battery systems. Guaranteed reliability and maximum efficiency for your home or business.",
+      icon: <Zap className="w-12 h-12 text-green-500 mb-4" />,
       link: "/services",
+      features: ["Tier-1 Solar Panels", "Smart Inverters", "Battery Storage", "10+ Year Warranty"]
     },
     {
-      title: "Commercial Installations",
-      description: "Reduce diesel costs and ensure 24/7 power for your SME or corporate organization.",
-      icon: <Building2 className="w-10 h-10 text-yellow-500 mb-4" />,
+      title: "Expert Training",
+      subtitle: "Educational Programs",
+      description: "Comprehensive training and certification programs for solar installation, maintenance, and system optimization. Empower your team with professional expertise.",
+      icon: <Lightbulb className="w-12 h-12 text-yellow-500 mb-4" />,
       link: "/services",
+      features: ["Hands-on Training", "Certification", "Technical Support", "Ongoing Education"]
     },
     {
-      title: "Maintenance & Support",
-      description: "Keep your inverters and panels running efficiently with our expert maintenance services.",
-      icon: <Wrench className="w-10 h-10 text-yellow-500 mb-4" />,
+      title: "Dedicated Support",
+      subtitle: "24/7 Maintenance & Assistance",
+      description: "Round-the-clock technical support and preventive maintenance to keep your system running at peak performance. Expert engineers ready to assist.",
+      icon: <Users className="w-12 h-12 text-blue-500 mb-4" />,
       link: "/services",
+      features: ["24/7 Hotline", "Rapid Response", "Preventive Care", "Performance Monitoring"]
     },
   ];
 
@@ -73,27 +79,29 @@ export default function Home() {
               transition={{ duration: 0.6 }}
             >
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-500/20 text-green-300 font-medium text-sm mb-6 border border-green-500/30">
-                <Zap size={16} /> <span>Say Goodbye to NEPA/Grid Issues</span>
+                <Zap size={16} /> <span>Premium Solar Solutions for Nigeria</span>
               </div>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6 leading-tight">
-                Reliable Solar Installation in Nigeria
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-yellow-400">Harness the Power</span> of Clean Energy
               </h1>
               <p className="text-lg md:text-xl text-slate-300 mb-10 max-w-2xl">
-                Providing affordable solar power in Lagos, Abuja, and beyond. Empowering homes and businesses across Nigeria with clean, uninterrupted solar energy. Stop buying diesel and start saving today.
+                Transform your home or business with guaranteed reliability and efficiency. Professional solar installation backed by expert training and lifetime support. Experience uninterrupted power today.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4">
-                <NavLink
-                  to="/contact"
-                  className="inline-flex justify-center items-center gap-2 bg-yellow-500 text-slate-900 px-8 py-4 rounded-lg font-bold text-lg hover:bg-yellow-400 transition-colors shadow-lg"
+                <a
+                  href="https://wa.me/2347068952359"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex justify-center items-center gap-2 bg-green-500 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-green-600 transition-colors shadow-lg"
                 >
-                  Get a Free Quote <ArrowRight size={20} />
-                </NavLink>
+                  <MessageCircle size={20} /> Chat on WhatsApp
+                </a>
                 <NavLink
                   to="/services"
                   className="inline-flex justify-center items-center gap-2 bg-white/10 text-white border border-white/20 px-8 py-4 rounded-lg font-bold text-lg hover:bg-white/20 transition-colors"
                 >
-                  Explore Packages
+                  Explore Services
                 </NavLink>
               </div>
             </motion.div>
@@ -197,16 +205,26 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="bg-slate-50 rounded-2xl p-8 border border-slate-100 hover:shadow-xl transition-shadow group"
+                className="bg-white rounded-2xl p-8 border-2 border-slate-100 hover:border-green-500 hover:shadow-xl transition-all group relative overflow-hidden"
               >
+                <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-green-500/5 to-transparent"></div>
                 {service.icon}
-                <h3 className="text-2xl font-bold text-slate-900 mb-3">{service.title}</h3>
-                <p className="text-slate-600 mb-6">{service.description}</p>
+                <h3 className="text-xl font-bold text-slate-900 mb-1">{service.title}</h3>
+                <p className="text-sm text-green-700 font-semibold mb-3">{service.subtitle}</p>
+                <p className="text-slate-600 mb-6 text-sm leading-relaxed">{service.description}</p>
+                <div className="space-y-2 mb-6">
+                  {service.features.map((feature, i) => (
+                    <div key={i} className="flex items-center gap-2 text-sm text-slate-700">
+                      <CheckCircle2 size={16} className="text-green-600 flex-shrink-0" />
+                      <span>{feature}</span>
+                    </div>
+                  ))}
+                </div>
                 <NavLink
                   to={service.link}
                   className="inline-flex items-center text-green-700 font-semibold group-hover:text-green-800"
                 >
-                  View Details <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
+                  Learn More <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
                 </NavLink>
               </motion.div>
             ))}
@@ -266,28 +284,110 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Sustainability Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="relative rounded-2xl overflow-hidden shadow-xl h-96"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1655300256486-4ec7251bf84e?auto=format&fit=crop&q=80"
+                alt="Solar panels creating sustainable energy"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-tr from-green-900/30 to-transparent"></div>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <div className="flex items-center gap-3 mb-4">
+                <Leaf className="w-8 h-8 text-green-600" />
+                <span className="text-sm font-bold text-green-700 uppercase tracking-widest">Sustainable Impact</span>
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">Reduce Your Carbon Footprint</h2>
+              <p className="text-lg text-slate-600 mb-6 leading-relaxed">
+                Every solar installation with TolWatts helps reduce Nigeria's dependence on diesel generators and fossil fuels. By choosing renewable energy, you're contributing to a cleaner environment for future generations.
+              </p>
+              <div className="space-y-4 mb-8">
+                <div className="flex items-start gap-4">
+                  <div className="bg-green-100 p-3 rounded-lg">
+                    <Leaf className="w-6 h-6 text-green-700" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-slate-900 mb-1">Eliminate Diesel Emissions</h4>
+                    <p className="text-slate-600 text-sm">Stop using polluting generators and join the clean energy revolution.</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4">
+                  <div className="bg-green-100 p-3 rounded-lg">
+                    <Zap className="w-6 h-6 text-green-700" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-slate-900 mb-1">Save Resources</h4>
+                    <p className="text-slate-600 text-sm">Harness infinite solar energy and reduce dependence on finite resources.</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4">
+                  <div className="bg-green-100 p-3 rounded-lg">
+                    <Lightbulb className="w-6 h-6 text-green-700" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-slate-900 mb-1">Set an Example</h4>
+                    <p className="text-slate-600 text-sm">Be part of Nigeria's sustainable future and inspire your community.</p>
+                  </div>
+                </div>
+              </div>
+              <NavLink
+                to="/about"
+                className="inline-flex items-center gap-2 text-green-700 font-bold hover:text-green-800"
+              >
+                Learn About Our Mission <ArrowRight size={18} />
+              </NavLink>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
-      <section className="relative py-20 bg-slate-900 overflow-hidden">
+      <section className="relative py-20 bg-gradient-to-br from-green-700 to-slate-900 overflow-hidden">
         <div className="absolute inset-0">
           <img
             src="https://images.unsplash.com/photo-1623244736886-1108836855e9?auto=format&fit=crop&q=80"
-            alt="Happy family"
-            className="w-full h-full object-cover opacity-20"
+            alt="Happy family with solar power"
+            className="w-full h-full object-cover opacity-15"
           />
         </div>
         <div className="relative max-w-4xl mx-auto px-4 text-center z-10">
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
-            Ready to Take Control of Your Power?
+            Guaranteed Reliability & Efficiency
           </h2>
-          <p className="text-xl text-slate-300 mb-10">
-            Get a free consultation and personalized quote for your home or business today.
+          <p className="text-xl text-green-100 mb-10">
+            Join thousands of Nigerians experiencing uninterrupted, affordable power.
           </p>
-          <NavLink
-            to="/contact"
-            className="inline-flex justify-center items-center gap-2 bg-yellow-500 text-slate-900 px-8 py-4 rounded-lg font-bold text-lg hover:bg-yellow-400 transition-colors shadow-lg"
-          >
-            Book a Free Consultation
-          </NavLink>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="https://wa.me/2347068952359"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex justify-center items-center gap-2 bg-yellow-400 text-slate-900 px-8 py-4 rounded-lg font-bold text-lg hover:bg-yellow-300 transition-colors shadow-lg"
+            >
+              <MessageCircle size={20} /> Contact Us on WhatsApp
+            </a>
+            <NavLink
+              to="/contact"
+              className="inline-flex justify-center items-center gap-2 bg-white/20 text-white border-2 border-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white/30 transition-colors"
+            >
+              Get a Quote
+            </NavLink>
+          </div>
         </div>
       </section>
     </div>
